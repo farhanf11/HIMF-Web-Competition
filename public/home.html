@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/public/output.css">
+    <link rel="icon" href="/img/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/regular.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="/node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="/node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>HMIF UMJ</title>
+
+    <style>
+        .image {
+          position: relative;
+          }
+          .image__img {
+              display: block;
+              width: 100%;
+              height: 100%;
+          }
+
+          .image__overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.6);
+              color: #ffffff;
+              font-family: 'Quicksand', sans-serif;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              opacity: 0;
+              transition: opacity 0.25s;
+          }
+
+          .image__overlay--blur {
+              backdrop-filter: blur(5px);
+          }
+
+          .image__overlay--primary {
+              background: white;
+             
+          }
+
+          .image__overlay > * {
+              transform: translateY(20px);
+              transition: transform 0.25s;
+          }
+
+          .image__overlay:hover {
+              opacity: 0.9;
+          }
+
+          .image__overlay:hover > * {
+              transform: translateY(0);
+
+          }
+
+          .image__title {
+              color: #8336DA;
+              font-size:20px ;
+              font-weight: bold;
+              text-align: center;
+          }
+
+          .image__description {
+              color: #8336DA;
+              font-size: 15px;
+              margin-top: 0.25em;
+          }
+      </style>
+</head>
+
+<body style="font-family: Poppins">
+    <!-- NAVBAR untuk mobile -->
+    <nav class=" md:hidden">
+        <div class="px-4 py-2 flex flex-row justify-between">
+            <div class="flex flex-row gap-x-2">
+                <img class="w-12" src="/img/logo.png" alt="">
+                <!-- <div class="flex flex-col justify-center">
+                <div class="font-semibold">
+                    HMIF
+                </div>        
+                <div class="text-xs">
+                    Universitas Muhammadiyah Jakarta
+                </div>
+            </div> -->
+            </div>
+
+            <button class="p-3 open burger" onclick="o()" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="p-3 close hidden" onclick="p()" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="navhide hidden h-screen">
+            <ul>
+                <li class="bg-gray-100 py-2 flex justify-between px-4">
+                    <a href="" class="text-sm mx-7">Home </a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-white  py-2 flex justify-between px-4">
+                    <a href="/public/strukturKepengurusan.html" class="text-sm mx-7">Struktur Kepengurusan </a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-gray-100 py-2 flex justify-between px-4">
+                    <a href="" class="text-sm mx-7">Proker</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-white py-2  flex justify-between px-4">
+                    <a href="" class="text-sm mx-7 ">Proker Terlaksana</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-gray-100 py-2  flex justify-between px-4">
+                    <a href="" class="text-sm mx-7 ">Kontak Kami</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+               
+            </ul>
+        </div>
+
+    </nav>
+    <!-- NAVBAR untuk mobile -->
+
+    <!-- NAVBAR untuk Desktop -->
+    <nav class="hidden md:block">
+        <div class="px-8 py-4 flex flex-row justify-between bg-white">
+            <div class="flex flex-row gap-x-2">
+                <img class="w-12" src="/img/logo.png" alt="">
+                <!-- <div class="flex flex-col justify-center">
+                    <div class="font-semibold">
+                        Himpunan Mahasiswa Informatika
+                    </div>
+                    <div class="text-xs">
+                        Universitas Muhammadiyah Jakarta
+                    </div>
+                </div> -->
+            </div>
+            <div class="flex flex-row justify-between gap-x-6 text-sm">
+                <div class="flex flex-col justify-center text-blue-600 font-semibold p-2 hover:bg-gray-100">
+                    <a href="/public/home.html">Home</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/strukturKepengurusan.html">Struktur Kepengurusan </a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/proker.html">Proker</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/prokerTerlaksana.html">Proker Terlaksana</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/contact.html">Kontak Kami</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR untuk desktop -->
+
+    <!-- untuk mobile -->
+    <section class="bg-gray-50 md:hidden" data-aos="fade-up">
+        <div class="px-6 py-4 flex flex-col justify-center text-center rounded-b-3xl bg-white">
+            <div class="text-base text-gray-400 mb-2">
+                Selamat Datang di Website
+            </div>
+            <div class="font-bold text-5xl">
+                HMIF UMJ
+            </div>
+            <div class="text-sm text-gray-400 mb-4">
+                #Salam Teknologi !
+            </div>
+            <div class="mySwiper overflow-x-hidden mb-4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white">
+                        <img class="w-92" src="/img/girl-pic.png" alt="girl-umj" id="girlpic">
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <img class="w-64 mx-auto" src="/img/man-pic.png" alt="boy-umj" id="manpic">
+                    </div>
+
+                </div>
+            </div>
+            <a class="bg-yellow-400 p-3 rounded-lg w-1/2 text-sm font-semibold mx-auto shadow-lg mb-4" href="#">
+                Selengkapnya <i class="fas fa-angle-right"></i>
+            </a>
+        </div>
+    </section>
+    <!-- untuk mobile -->
+
+    <!-- untuk desktop -->
+    <section class="bg-gray-50 hidden md:block" data-aos="fade-up">
+        <div class="px-20 py-4 grid grid-cols-2 bg-white m">
+            <div class="flex flex-col justify-center">
+                <div class="text-base text-gray-400 mb-2">
+                    Selamat Datang di Website
+                </div>
+                <div class="font-bold text-3xl mb-2">
+                    Himpunan Mahasiswa Informatika
+                </div>
+                <div class="font-bold text-2xl mb-4">
+                    Universitas Muhamadiyah Jakarta
+                </div>
+                <div class="text-sm text-gray-400 mb-8">
+                    #Salam Teknologi !
+                </div>
+                <a class="bg-yellow-400 p-3 rounded-lg text-sm font-semibold w-36 shadow-lg mb-4" href="#">
+                    Selengkapnya <i class="fas fa-angle-right"></i>
+                </a>
+            </div>
+            <div class="mySwiper overflow-x-hidden mb-4 py-8 ">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white">
+                        <img class="w-96" src="/img/girl-pic.png" alt="girl-umj" id="girlpic">
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <img class="w-72 mx-auto" src="/img/man-pic.png" alt="boy-umj" id="manpic">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- untuk desktop -->
+
+
+    <!-- untuk mobile -->
+    <section data-aos="fade-up">
+        <div class=" pl-6 py-11" style="background-color: #F3EDF6;">
+            <div class="glide ">
+                <div class="glide__track " data-glide-el="track">
+                    <ul class="glide__slides md:gap-x-8">
+                        <li class="glide__slide">
+                            <div class="bg-white rounded-xl flex flex-col justify-center py-6 px-3 md:px-6 md:py-8">
+                                <div class="rounded-full p-3 bg-yellow-400 w-12 text-center mx-auto shadow-lg mb-2">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center text-center font-bold mb-4 text-xs md:text-base">
+                                    <div> Departemen </div>
+                                    <div> Pengabdian Masyarakat </div>
+                                </div>
+                                <div
+                                    class="flex justify-center text-center text-ms leading-relaxed text-gray-400 px-1 mb-2 md:text-sm">
+                                    Departemen PENGMAS adalah departemen yang mewadahi mahasiswa Teknik UMJ dalam
+                                    mewujudkan
+                                    kepedulian terhadap keadaan lingkungan dan masyarakat sekitar.
+                                </div>
+                                <a href="/public/depPengmas.html" class="bg-yellow-400 py-3 rounded-md w-1/2 font-semibold mx-auto text-center md:text-sm text-xs ">Selengkapnya</a>
+                            </div>
+                            
+                        </li>
+                        <li class="glide__slide">
+                            <div class="bg-white rounded-xl flex flex-col justify-center py-6 px-3 md:px-6 md:py-8">
+                                <div class="rounded-full p-3 bg-yellow-400 w-12 text-center mx-auto shadow-lg mb-2">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center text-center font-bold text-xs mb-4 md:text-base">
+                                    <div> Departemen </div>
+                                    <div> Kaderisasi </div>
+                                </div>
+                                <div
+                                    class="flex justify-center text-center text-ms leading-relaxed text-gray-400 px-1 md:text-sm">
+                                    Departemen kaderisasi merupakan departemen yang berperan dalam membentuk kader-kader
+                                    yang berkompeten dari softskill maupun ilmu tentang Teknik Informatika.
+                                </div>
+                                <a href="/public/depKader.html" class="bg-yellow-400 py-3 rounded-md w-1/2 font-semibold mx-auto text-center md:text-sm text-xs ">Selengkapnya</a>
+                            </div>
+                        </li>
+
+                        <li class="glide__slide">
+                            <div class="bg-white rounded-xl flex flex-col justify-center py-6 px-3 md:px-6 md:py-8">
+                                <div class="rounded-full p-3 bg-yellow-400 w-12 text-center mx-auto shadow-lg mb-2">
+                                    <i class="fas fa-warehouse"></i>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center text-center font-bold text-xs mb-4 md:text-base">
+                                    <div> Departemen </div>
+                                    <div> PRHP </div>
+                                </div>
+                                <div
+                                    class="flex justify-center text-center text-ms leading-relaxed text-gray-400 px-1 md:text-sm">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quaerat,
+                                    inventore corporis corrupti cupiditate non aliquam, incidunt maiores, doloribus unde
+                                    eaque dolor expedita id tenetur!
+                                </div>
+                                <a href="/public/depPrhp.html" class="bg-yellow-400 py-3 rounded-md w-1/2 font-semibold mx-auto text-center md:text-sm text-xs ">Selengkapnya</a>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="bg-white rounded-xl flex flex-col justify-center py-6 px-3 md:px-6 md:py-8">
+                                <div class="rounded-full p-3 bg-yellow-400 w-12 text-center mx-auto shadow-lg mb-2">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center text-center font-bold text-xs mb-4 md:text-base">
+                                    <div> Departemen </div>
+                                    <div> IPTEK </div>
+                                </div>
+                                <div
+                                    class="flex justify-center text-center text-ms leading-relaxed text-gray-400 px-1 md:text-sm">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quaerat,
+                                    inventore corporis corrupti cupiditate non aliquam, incidunt maiores, doloribus unde
+                                    eaque dolor expedita id tenetur!
+                                </div>
+                                <a href="/public/depIptek.html" class="bg-yellow-400 py-3 rounded-md w-1/2 font-semibold mx-auto text-center md:text-sm text-xs ">Selengkapnya</a>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="bg-white rounded-xl flex flex-col justify-center py-6 px-3 md:px-6 md:py-8">
+                                <div class="rounded-full p-3 bg-yellow-400 w-12 text-center mx-auto shadow-lg mb-2">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center text-center font-bold text-xs mb-4 md:text-base">
+                                    <div> Departemen </div>
+                                    <div> Kominfo </div>
+                                </div>
+                                <div
+                                    class="flex justify-center text-center text-ms leading-relaxed text-gray-400 px-1 md:text-sm">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus quaerat,
+                                    inventore corporis corrupti cupiditate non aliquam, incidunt maiores, doloribus unde
+                                    eaque dolor expedita id tenetur!
+                                </div>
+                                <a href="/public/depIptek.html" class="bg-yellow-400 py-3 rounded-md w-1/2 font-semibold mx-auto text-center md:text-sm text-xs ">Selengkapnya</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-angle-left text-gray-500"></i></button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-angle-right text-gray-500"></i></button>
+                </div> -->
+            </div>
+
+        </div>
+    </section>
+    <!-- untuk mobile -->
+
+    <section data-aos="fade-up">
+        <div class="px-8 py-4 bg-white mb-8 md:py-12 md:px-20 lg:px-28 ">
+            <div class="text-center flex justify-center text-base font-bold md:text-2xl">
+                Event Terbaru
+            </div>
+            <div class="text-ms text-center leading-relaxed p-4 text-gray-400 mb-4 md:text-base md:leading-relaxed">
+                Himpunan Mahasiswa Teknik Informatika UMJ juga banyak menjalankan proker dari tiap divisi, dan berikut
+                adalah agenda event yang kami sedang selenggarakan maupun yang sudah selesai diselenggarakan. Pastinya
+                event yang kami buat sangat bermanfaat dan seru banget nih
+            </div>
+
+            <div class="grid grid-cols-2 mb-8 md:grid-cols-3 gap-1">   
+           
+                <!-- Content -->
+                <div class="bg-blue-400 w-auto">
+                    <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                        <div class="image w-auto">
+                            <img class="image__img" src="/img/proker12.png" alt="Bricks">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title">Nama Kegiatan</div>
+                                <p class="image__description" >
+                                blablablablabla
+                                2019
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Content -->
+                <div class="bg-blue-400 w-auto">
+                    <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                        <div class="image w-auto">
+                            <img class="image__img" src="/img/proker15.png" alt="Bricks">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title">Nama Kegiatan</div>
+                                <p class="image__description" >
+                                blablablablabla
+                                2019
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Content -->
+                <div class="bg-blue-400 w-auto hidden md:inline-block">
+                    <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                        <div class="image w-auto">
+                            <img class="image__img" src="/img/proker13.png" alt="Bricks">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title">Nama Kegiatan</div>
+                                <p class="image__description" >
+                                blablablablabla
+                                2019
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <a href=""
+            
+                class="text-white bg-purple-500 hover:bg-purple-600  text-xs text-center flex justify-center w-1/2 mx-auto px-2 py-2 rounded-md md:text-base md:w-1/3"> 
+                Lihat Selengkapnya
+            </a>
+        </div>
+    </section>
+
+    <!-- untuk mobile -->
+    <section data-aos="fade-up">
+        <div class="px-6 py-6 md:hidden" style="background-color: #F3EDF6;">
+            <div class="text-center flex justify-center text-base font-bold mb-2">
+                Tentang HMIF UMJ
+            </div>
+            <div class="flex justify-center">
+                <img class="w-40" src="/img/logo.png" alt="logo">
+            </div>
+            <div class="text-ms text-center leading-relaxed p-4 text-gray-400 mb-4">
+                Himpunan Mahasiswa Informatika Fakultas Teknik Universitas Universitas Muhammadiyah Jakata (HMIF FT UMJ)
+                adalah organisasi yang mewadahi, menaungi dan beranggotakan seluruh mahasiswa teknik FT UMJ. HMIF
+                bertujuan untuk mewujudkan kedaulatan mahasiswa teknik, mengembangkan kemampuan keprofesian dan
+                non-keprofesian
+            </div>
+            <a href=""
+            
+                class="text-white bg-purple-500 hover:bg-purple-600 text-xs text-center flex justify-center w-1/2 mx-auto px-2 py-2 rounded-md">
+                Lihat Selengkapnya
+            </a>
+        </div>
+    </section>
+    <!-- untuk mobile -->
+
+
+    <!-- untuk desktop -->
+    <section data-aos="fade-up">
+        <div class="px-20 py-12  hidden md:block" style="background-color: #F3EDF6;;"> 
+            <div class="grid grid-cols-2">
+                <div class="flex justify-center">
+                    <img class="w-1/2" src="/img/logo.png" alt="logo">
+                </div>
+                <div class="">
+                    <div class="text-start text-2xl font-bold mb-4">
+                        Tentang HMIF UMJ
+                    </div>
+                    <div class="text-base text-start leading-relaxed text-gray-400 mb-4">
+                        Himpunan Mahasiswa Informatika Fakultas Teknik Universitas Universitas Muhammadiyah Jakata (HMIF
+                        FT
+                        UMJ)
+                        adalah organisasi yang mewadahi, menaungi dan beranggotakan seluruh mahasiswa teknik FT UMJ.
+                        HMIF
+                        bertujuan untuk mewujudkan kedaulatan mahasiswa teknik, mengembangkan kemampuan keprofesian dan
+                        non-keprofesian
+                    </div>
+                    <a href=""
+                    
+                        class="text-white bg-purple-500 hover:bg-purple-600 text-base text-center flex justify-center w-1/2 px-2 py-2 rounded-md">
+                        Lihat Selengkapnya
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- untuk desktop -->
+    <section data-aos="fade-up">
+        <div class="px-6 py-6 bg-white md:px-20 md:py-12">
+            <div class="text-center flex justify-center text-base font-bold mb-2 md:text-2xl md:mb-8">
+                SUPPORTED BY
+            </div>
+            <div class="glideSupport px-16">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide"><img class="w-20" src="/img/support/umj.svg" alt=""></li>
+                        <li class="glide__slide"><img class="w-20" src="/img/support/umj2.png" alt=""></li>
+                        <li class="glide__slide"><img class="w-20" src="/img/support/ftumj.svg" alt=""></li>
+                        <li class="glide__slide"><img class="w-20" src="/img/support/mediaevent.svg" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+    </section>
+
+    <!-- untuk mobile -->
+    <section data-aos="fade-up">
+        <div class="px-6 py-6 md:hidden" style="background-color: #F3EDF6;;">
+            <div class="text-center flex justify-center text-base font-bold mb-2">
+                Program Kerja
+            </div>
+            <div class="text-ms text-center leading-relaxed p-4 text-gray-400 mb-4">
+                Suatu rencana kegiatan organisasi yang dibuat untuk jangka waktu tertentu yang disepakati oleh pengurus
+                organisasi. Program kerja harus dibuat secara sistematis, terpadu, terperinci serta terarah, sebab
+                program kerja sebagai pegangan dalam mencapai tujuan organisasi
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 mb-8">
+                 <!-- Content -->
+                 <div class="bg-blue-400 w-auto">
+                    <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                        <div class="image w-auto">
+                            <img class="image__img" src="/img/proker10.png" alt="Bricks">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title">Nama Kegiatan</div>
+                                <p class="image__description" >
+                                blablablablabla
+                                2019
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <!-- End Content -->
+             <!-- Content -->
+             <div class="bg-blue-400 w-auto">
+                <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                    <div class="image w-auto">
+                        <img class="image__img" src="/img/proker11.png" alt="Bricks">
+                        <div class="image__overlay image__overlay--primary">
+                            <div class="image__title">Nama Kegiatan</div>
+                            <p class="image__description" >
+                            blablablablabla
+                            2019
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <!-- End Content -->
+         <!-- Content -->
+         <div class="bg-blue-400 w-auto">
+            <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                <div class="image w-auto">
+                    <img class="image__img" src="/img/proker12.png" alt="Bricks">
+                    <div class="image__overlay image__overlay--primary">
+                        <div class="image__title">Nama Kegiatan</div>
+                        <p class="image__description" >
+                        blablablablabla
+                        2019
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <!-- End Content -->
+     <!-- Content -->
+     <div class="bg-blue-400 w-auto">
+        <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+            <div class="image w-auto">
+                <img class="image__img" src="/img/proker13.png" alt="Bricks">
+                <div class="image__overlay image__overlay--primary">
+                    <div class="image__title">Nama Kegiatan</div>
+                    <p class="image__description" >
+                    blablablablabla
+                    2019
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+<!-- End Content -->
+
+            </div>
+            <a href=""
+          
+                class="text-white bg-purple-500 hover:bg-purple-600 text-xs text-center flex justify-center w-1/2 mx-auto px-2 py-2 rounded-md">
+                Lihat Selengkapnya
+            </a>
+        </div>
+    </section>
+    <!-- untuk mobile -->
+
+    <!-- untuk desktop -->
+    <section class="hidden md:block" data-aos="fade-up">
+        <div class="px-20 py-12 grid grid-cols-2" style="background-color: #F3EDF6;;">
+            <div class="flex flex-col justify-center">
+                <div class="text-2xl font-bold mb-8">
+                    Program Kerja
+                </div>
+                <div class="text-base leading-relaxed text-gray-400 mb-4 pr-8">
+                    Suatu rencana kegiatan organisasi yang dibuat untuk jangka waktu tertentu yang disepakati oleh
+                    pengurus
+                    organisasi. Program kerja harus dibuat secara sistematis, terpadu, terperinci serta terarah, sebab
+                    program kerja sebagai pegangan dalam mencapai tujuan organisasi
+                </div>
+                <a href=""
+            
+                    class="text-white bg-purple-500 hover:bg-purple-600 text-base text-center flex justify-center w-1/2 px-2 py-2 rounded-md">
+                    Lihat Selengkapnya
+                </a>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mb-8">
+                <!-- Content -->
+                    <div class="bg-blue-400 w-auto">
+                        <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                            <div class="image w-auto">
+                                <img class="image__img" src="/img/proker10.png" alt="Bricks">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Nama Kegiatan</div>
+                                    <p class="image__description" >
+                                    blablablablabla
+                                    2019
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <!-- End Content -->
+                <!-- Content -->
+                    <div class="bg-blue-400 w-auto">
+                        <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                            <div class="image w-auto">
+                                <img class="image__img" src="/img/proker11.png" alt="Bricks">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Nama Kegiatan</div>
+                                    <p class="image__description" >
+                                    blablablablabla
+                                    2019
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <!-- End Content -->
+
+                <!-- Content -->
+                    <div class="bg-blue-400 w-auto">
+                        <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                            <div class="image w-auto">
+                                <img class="image__img" src="/img/proker12.png" alt="Bricks">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Nama Kegiatan</div>
+                                    <p class="image__description" >
+                                    blablablablabla
+                                    2019
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <!-- End Content -->
+
+                <!-- Content -->
+                <div class="bg-blue-400 w-auto">
+                    <a href="https://www.instagram.com/p/CVvOlnPPQkz/">
+                        <div class="image w-auto">
+                            <img class="image__img" src="/img/proker13.png" alt="Bricks">
+                            <div class="image__overlay image__overlay--primary">
+                                <div class="image__title">Nama Kegiatan</div>
+                                <p class="image__description" >
+                                blablablablabla
+                                2019
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <!-- End Content -->    
+            </div>
+
+        </div>
+    </section>
+    <!-- untuk desktop -->
+    <footer class="px-6 py-14 mt-10 md:mt-16 lg:mt-20" style="background-color: #4D2579;">
+        <div class="grid grid-cols-2 md:grid-cols-3">
+            <div class="flex flex-row ">
+                <div class="mr-2">
+                    <img class="w-32" src="/img/logo.png" alt="logo">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="text-sm md:text-base font-semibold  text-white">
+                        HMIF BEM FT-UMJ
+                    </div>
+                    <div class="text-white text-xs">
+                        Himpunan Mahasiswa Teknik Informatika BEM FT-UMJ
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <div class="text-white text-sm md:text-base mb-1">
+                    Contact Us
+                </div>
+
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-whatsapp "></i>
+                    081292998783
+                </div>
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-instagram"></i>
+                    hmif_ftumj
+                </div>
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-twitter"></i>
+                    hmif_ftumj
+                </div>
+            </div>
+
+            <div class="text-center hidden md:inline-block">
+                <div class="text-white text-left  text-sm mb-1 md:text-base">
+                    Location
+                </div>
+                <div class="text-white text-ls mb-1 md:text-left  md:text-xs">
+                    Jl. K.H. Ahmad Dahlan, Cireundeu, Kec. Ciputat Tim.,<br> Kota Tangerang Selatan, Banten 15419
+                </div>
+            </div>
+
+        </div>
+        <div class="my-4 text-center  md:hidden">
+            <div class="text-white text-sm mb-1">
+                Location
+            </div>
+            <div class="text-white text-ls mb-1 ">
+                Jl. K.H. Ahmad Dahlan, Cireundeu, Kec. Ciputat Tim.,<br> Kota Tangerang Selatan, Banten 15419
+            </div>
+        </div>
+
+    </footer>
+    <small style="background-color: #321650;"
+        class="p-2 text-center flex justify-center text-white font-light text-ls lg:text-ls">
+        HMIF BEM FT-UMJ By BH-AL. © 2021. All Right Reserved
+    </small>
+
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            effect: "fade",
+        });
+    </script>
+
+    <script>
+        var card = new Glide('.glide', {
+            type: 'carousel',
+            autoplay: 6000,
+            perView: 4,
+            breakpoints: {
+                375: {
+                    perView: 2,
+                },
+                480: {
+                    perView: 2,
+                },
+                768: {
+                    perView: 2,
+                }
+            }
+        })
+
+        card.mount()
+    </script>
+
+    <script>
+        var support = new Glide('.glideSupport', {
+            type: 'carousel',
+            perView: 3,
+            focusAt: 'center',
+            autoplay: 3000
+        })
+
+        support.mount()
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        // grab everything we need
+        const btn = document.querySelector("button.open");
+        const menu = document.querySelector(".navhide");
+        const burger = document.querySelector(".burger");
+        const x = document.querySelector("button.close");
+        const nv = document.querySelector("body");
+
+        // add event listeners
+        var o = () => btn.addEventListener("click", () => {
+            menu.classList.remove("hidden");
+            burger.classList.add("hidden");
+            x.classList.remove("hidden");
+            nv.style.overflowY = "hidden";
+        });
+
+        var p = () => x.addEventListener("click", () => {
+            menu.classList.add("hidden");
+            burger.classList.remove("hidden");
+            x.classList.add("hidden");
+            nv.style.overflowY = "scroll";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/public/output.css">
+    <link rel="icon" href="/img/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/regular.js"></script>
+    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="/node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="/node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>HMIF UMJ</title>
+
+</head>
+
+<body style="font-family: Poppins; background-color: #F3EDF6;">
+    
+    <!-- NAVBAR untuk mobile -->
+ <nav class=" md:hidden">
+        <div class="px-4 py-2 flex flex-row justify-between">
+            <div class="flex flex-row gap-x-2">
+                <img class="w-12" src="/img/logo.png" alt="">
+                <!-- <div class="flex flex-col justify-center">
+                <div class="font-semibold">
+                    HMIF
+                </div>        
+                <div class="text-xs">
+                    Universitas Muhammadiyah Jakarta
+                </div>
+            </div> -->
+            </div>
+
+            <button class="p-3 open burger" onclick="o()" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="p-3 close hidden" onclick="p()" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="navhide hidden h-screen">
+            <ul>
+                <li class="bg-gray-100 py-2 flex justify-between px-4">
+                    <a href="/public/home.html" class="text-sm mx-7">Home </a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-white  py-2 flex justify-between px-4">
+                    <a href="/public/strukturKepengurusan.html" class="text-sm mx-7">Struktur Kepengurusan </a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-gray-100 py-2 flex justify-between px-4">
+                    <a href="/public/proker.html" class="text-sm mx-7">Proker</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-white py-2  flex justify-between px-4">
+                    <a href="/public/prokerTerlaksana.html" class="text-sm mx-7 ">Proker Terlaksana</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+                <li class="bg-gray-100 py-2  flex justify-between px-4">
+                    <a href="/public/contact.html" class="text-sm mx-7 ">Kontak Kami</a>
+                    <div> <i class="fas fa-angle-right"></i></div>
+                </li>
+               
+            </ul>
+        </div>
+
+    </nav>
+    <!-- NAVBAR untuk mobile -->
+
+    <!-- NAVBAR untuk Desktop -->
+    <nav class="hidden md:block">
+        <div class="px-8 py-4 flex flex-row justify-between bg-white">
+            <div class="flex flex-row gap-x-2">
+                <img class="w-12" src="/img/logo.png" alt="">
+                <!-- <div class="flex flex-col justify-center">
+                    <div class="font-semibold">
+                        Himpunan Mahasiswa Informatika
+                    </div>
+                    <div class="text-xs">
+                        Universitas Muhammadiyah Jakarta
+                    </div>
+                </div> -->
+            </div>
+            <div class="flex flex-row justify-between gap-x-6 text-sm">
+                <div class="flex flex-col justify-center p-2 hover:bg-gray-100">
+                    <a href="/public/home.html">Home</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/strukturKepengurusan.html">Struktur Kepengurusan </a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/proker.html">Proker</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2">
+                    <a href="/public/prokerTerlaksana.html">Proker Terlaksana</a>
+                </div>
+                <div class="flex flex-col justify-center hover:bg-gray-100 p-2 text-blue-600 font-semibold">
+                    <a href="/public/contact.html">Kontak Kami</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR untuk desktop -->
+
+        
+    <section data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 my-5 md:my-14 lg:my-16" >
+          
+            <!-- Contact Form -->
+                <div class="container mx-auto px-8">
+                    <div class="max-w-md mx-auto my-10  p-2 rounded-md shadow-sm bg-white">
+                        <div class="text-center">
+                            <h1 class="my-3 text-base md:text-lg  font-semibold text-gray-700">Hubungi Kami</h1>
+                           
+                        </div>
+                        <div class="m-7">
+                            <form>
+            
+                                <div class="mb-6">
+                                    <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Hary Alvaro Abdul" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300  text-sm" />
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+                                    <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300   text-sm" />
+                                </div>
+                               
+                                <div class="mb-6">
+                                    <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Your Message</label>
+            
+                                    <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300  text-sm " required></textarea>
+                                </div>
+                                <div class="mb-6">
+                                    <button type="submit" class="w-full px-3 py-4 text-sm font-semibold bg-yellow-400 hover:bg-yellow-500 rounded-md focus:bg-yellow-600 focus:outline-none">Send Message</button>
+                                </div>
+                                <p class="text-base text-center text-gray-400" id="result">
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <!-- End COntact Form -->
+
+
+            <!-- Maps & Info -->
+                <div  class="container mx-auto px-8">
+                    <div  class="max-w-md  mt-10 mb-4 p-2 rounded-md shadow-sm w-full bg-white">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.743170272871!2d106.76501021476953!3d-6.297442295442205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698e9e0a53c9a9%3A0x7eef42fe27764cbc!2sUniversitas%20Muhammadiyah%20Jakarta!5e0!3m2!1sid!2sid!4v1637845043465!5m2!1sid!2sid" 
+                        class="w-full h-80"
+                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="text-sm md:text-sm lg:text-base  leading-relaxed  text-gray-400 mb-4 font-normal">
+                        Jl. K.H. Ahmad Dahlan, Cireundeu, Kec. Ciputat Tim., <br> Kota Tangerang Selatan,Banten 15419 <br>
+                        Email: humas@umj.ac.id <br>
+                        Telp: (021) 4898486
+                    </div>
+                    <div >
+                        Follow Us
+                        <div>
+                            <i class="fab fa-whatsapp"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Maps & Info  -->
+
+        </div>  
+    </section> 
+
+    <footer class="px-6 py-14 mt-10 md:mt-16 lg:mt-20" style="background-color: #4D2579;">
+        <div class="grid grid-cols-2 md:grid-cols-3">
+            <div class="flex flex-row ">
+                <div class="mr-2">
+                    <img class="w-32" src="/img/logo.png" alt="logo">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <div class="text-sm md:text-base font-semibold  text-white">
+                        HMIF BEM FT-UMJ
+                    </div>
+                    <div class="text-white text-xs">
+                        Himpunan Mahasiswa Teknik Informatika BEM FT-UMJ
+                    </div>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <div class="text-white text-sm md:text-base mb-1">
+                    Contact Us
+                </div>
+
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-whatsapp "></i>
+                    081292998783
+                </div>
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-instagram"></i>
+                    hmif_ftumj
+                </div>
+                <div class="text-white text-ls md:text-xs mb-1">
+                    <i class="fab fa-twitter"></i>
+                    hmif_ftumj
+                </div>
+            </div>
+
+            <div class="text-center hidden md:inline-block">
+                <div class="text-white text-left  text-sm mb-1 md:text-base">
+                    Location
+                </div>
+                <div class="text-white text-ls mb-1 md:text-left  md:text-xs">
+                    Jl. K.H. Ahmad Dahlan, Cireundeu, Kec. Ciputat Tim.,<br> Kota Tangerang Selatan, Banten 15419
+                </div>
+            </div>
+
+        </div>
+        <div class="my-4 text-center  md:hidden">
+            <div class="text-white text-sm mb-1">
+                Location
+            </div>
+            <div class="text-white text-ls mb-1 ">
+                Jl. K.H. Ahmad Dahlan, Cireundeu, Kec. Ciputat Tim.,<br> Kota Tangerang Selatan, Banten 15419
+            </div>
+        </div>
+
+    </footer>
+    <small style="background-color: #321650;" class="p-2 text-center flex justify-center text-white font-light text-ls lg:text-ls">
+        HMIF BEM FT-UMJ By BH-AL. © 2021. All Right Reserved
+    </small>
+
+
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+    <script>
+        // grab everything we need
+        const btn = document.querySelector("button.open");
+        const menu = document.querySelector(".navhide");
+        const burger = document.querySelector(".burger");
+        const x = document.querySelector("button.close");
+        const nv = document.querySelector("body");
+
+        // add event listeners
+        var o = () => btn.addEventListener("click", () => {
+            menu.classList.remove("hidden");
+            burger.classList.add("hidden");
+            x.classList.remove("hidden");
+            nv.style.overflowY = "hidden";
+        });
+
+        var p = () => x.addEventListener("click", () => {
+            menu.classList.add("hidden");
+            burger.classList.remove("hidden");
+            x.classList.add("hidden");
+            nv.style.overflowY = "scroll";
+        });
+    </script>
+</body>
+</html>
